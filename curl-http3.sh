@@ -31,7 +31,7 @@ cd ..
 git clone -b v1.2.0 https://github.com/ngtcp2/ngtcp2
 cd ngtcp2
 autoreconf -fi
-./configure PKG_CONFIG_PATH=$prefix/ngtcp2/lib/pkgconfig:$prefix/nghttp3/lib/pkgconfig LDFLAGS="-Wl,-rpath,$prefix/nghttp3/lib" --prefix=$prefix/ngtcp2 --enable-lib-only --with-wolfssl
+./configure PKG_CONFIG_PATH=$prefix/wolfssl/lib/pkgconfig:$prefix/nghttp3/lib/pkgconfig LDFLAGS="-Wl,-rpath,$prefix/nghttp3/lib" --prefix=$prefix/ngtcp2 --enable-lib-only --with-wolfssl
 make
 make install
 
@@ -42,3 +42,5 @@ autoreconf -fi
 ./configure --with-wolfssl=$prefix/wolfssl --with-nghttp3=$prefix/nghttp3 --with-ngtcp2=$prefix/ngtcp2
 make
 make install
+
+sudo ldconfig
